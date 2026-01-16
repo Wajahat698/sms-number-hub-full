@@ -22,8 +22,9 @@ def verify_password(password: str, password_hash: str) -> bool:
 def ensure_bootstrap_admin() -> None:
     init_db()
 
-    admin_username = "Admin"
-    admin_password = "Admin"
+    admin_username = (os.getenv("ADMIN_USERNAME") or "admin").strip().lower()
+    admin_password = (os.getenv("ADMIN_PASSWORD") or "").strip()
+
     existing = get_user_by_username(admin_username)
     if existing is not None:
         return
