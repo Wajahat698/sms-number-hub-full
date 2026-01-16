@@ -10,7 +10,23 @@ from lib.db import create_user, get_user_by_username, init_db, log_event, set_la
 
 _pwd_context = CryptContext(schemes=["bcrypt_sha256", "bcrypt"], deprecated="auto")
 
+JWT_SECRET=4ZLLHrpUTb0Bm6I7ffhHRYdFMzjHvwL7KJdWJ_YKz0A
+JWT_ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=720
 
+# ---- Backend ----
+DATABASE_URL=sqlite:///./data/app.db
+ENFORCE_TWILIO_SIGNATURE=true
+TWILIO_AUTH_TOKEN=bad654727fb4fe072b957622e98cd5ce
+OTP_VISIBILITY_MINUTES=10
+
+# Bootstrap initial admin on first backend start
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=admin123!CHANGE-ME
+ADMIN_EMAIL=
+
+# Optional: if you want Streamlit to know where the API is
+API_BASE_URL=http://127.0.0.1:8000
 def hash_password(password: str) -> str:
     return _pwd_context.hash(password)
 
@@ -22,8 +38,8 @@ def verify_password(password: str, password_hash: str) -> bool:
 def ensure_bootstrap_admin() -> None:
     init_db()
 
-    admin_username = (os.getenv("ADMIN_USERNAME") or "admin").strip().lower()
-    admin_password = (os.getenv("ADMIN_PASSWORD") or "").strip()
+    admin_username = ADMIN_USERNAME
+    admin_password = ADMIN_PASSWORD
 
     existing = get_user_by_username(admin_username)
     if existing is not None:
