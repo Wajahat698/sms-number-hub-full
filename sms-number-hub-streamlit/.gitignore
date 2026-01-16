@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.build/
+.dist/
+*.log
+
+# Virtual envs
+.venv/
+venv/
+ENV/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Node / frontend caches
+node_modules/
+*.tsbuildinfo
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/*.json
+
+# Data / artifacts
+*.sqlite3
+*.db
+*.sqlite
+*.csv
+*.xlsx
+*.parquet
+*.feather
+*.zip
+*.tar
+*.tar.gz
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+
+# Others
+.env
+.env.*

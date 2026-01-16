@@ -1,0 +1,38 @@
+# Root monorepo ignores
+.DS_Store
+.vscode/
+.idea/
+**/__pycache__/
+**/*.py[cod]
+**/*.pyo
+**/*.pyd
+
+# Envs
+**/.venv/
+**/venv/
+ENV/
+.env
+**/.env
+**/.env.*
+
+# Node/frontend
+**/node_modules/
+**/*.tsbuildinfo
+
+# Streamlit
+**/.streamlit/secrets.toml
+**/.streamlit/*.json
+
+# Data/artifacts
+**/*.sqlite3
+**/*.db
+**/*.sqlite
+**/*.parquet
+**/*.feather
+**/*.zip
+**/*.tar
+**/*.tar.gz
+**/.ipynb_checkpoints
+
+# OS/Other
+Thumbs.db
